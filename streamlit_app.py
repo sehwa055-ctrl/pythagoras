@@ -31,6 +31,20 @@ if st.button("삼각형 판별하기"):
     else:
         # 피타고라스의 정리로 삼각형 종류 판별
         a2, b2, c2 = sides[0]**2, sides[1]**2, sides[2]**2
+
+        # 풀이과정 출력
+        st.markdown(f"""
+        **풀이 과정**
+        1. 입력값: a = {a}, b = {b}, c = {c}
+        2. 변의 길이 오름차순 정렬: {sides}
+        3. 삼각형 성립 조건: 가장 짧은 두 변의 합 > 가장 긴 변
+           - {sides[0]} + {sides[1]} = {sides[0] + sides[1]} > {sides[2]} {'✅' if is_triangle else '❌'}
+        4. 피타고라스의 정리 계산:
+           - {sides[0]}² + {sides[1]}² = {a2} + {b2} = {a2 + b2}
+           - {sides[2]}² = {c2}
+        5. 비교:
+           - {a2 + b2} {'==' if a2 + b2 == c2 else ('>' if a2 + b2 > c2 else '<')} {c2}
+        """)
         if a2 + b2 == c2:
             st.success("직각삼각형입니다. (a² + b² = c²)")
         elif a2 + b2 > c2:
