@@ -3,6 +3,15 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
+from matplotlib import font_manager, rc
+import os
+
+# NanumGothic 폰트 경로 지정
+font_path = os.path.join(os.path.dirname(__file__), 'fonts', 'NanumGothic-Regular.ttf')
+if os.path.exists(font_path):
+    font_manager.fontManager.addfont(font_path)
+    rc('font', family='NanumGothic')
+
 # 삼각형의 변 입력
 st.title("삼각형 판별기 (피타고라스의 정리)")
 
